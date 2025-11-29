@@ -1,0 +1,483 @@
+================================================================================
+                    ARTIFICIAL INTELLIGENCE LABORATORY
+                              PRACTICAL REPORT
+================================================================================
+
+PRACTICAL NO: 2
+
+TITLE: Understanding and Implementation of Depth-First Search (DFS) Algorithm
+
+NAME: [Your Name]
+ROLL NO: [Your Roll Number]
+DATE: November 4, 2025
+
+================================================================================
+                                   AIM
+================================================================================
+
+To understand and implement the Depth-First Search (DFS) algorithm for graph 
+traversal with an interactive graphical user interface for graph construction 
+and visualization.
+
+================================================================================
+                               INTRODUCTION
+================================================================================
+
+Depth-First Search (DFS) is a fundamental graph traversal algorithm that 
+explores vertices by going as deep as possible along each branch before 
+backtracking. It starts at a source vertex and explores as far as possible 
+along each branch before backtracking to explore other branches.
+
+RELEVANCE TO ARTIFICIAL INTELLIGENCE:
+DFS is a core uninformed search strategy in AI, used for systematic exploration 
+of state spaces. In AI, problems are represented as graphs where nodes are 
+states and edges are actions. DFS is memory efficient and excels at exploring 
+deep solution paths, making it essential for:
+
+• AI Game Playing - Exploring game trees deeply for strategic moves
+• Constraint Satisfaction Problems - Backtracking search for solutions
+• Topological Sorting - Dependency resolution in planning systems
+• Cycle Detection - Finding loops in reasoning and planning
+• Path Finding - Exploring deep paths in maze solving
+
+This practical implements DFS with an interactive GUI for graph construction 
+and visualization, demonstrating how AI search algorithms systematically explore 
+problem spaces using depth-first strategy.
+
+================================================================================
+                                  THEORY
+================================================================================
+
+DFS IN AI:
+DFS is an uninformed search strategy in AI that uses BACKTRACKING and is 
+SPACE-EFFICIENT. Unlike BFS, it doesn't guarantee optimality but explores 
+deeply into the search tree.
+
+GRAPH REPRESENTATION:
+In AI, graphs model problem spaces where:
+- Nodes = States (problem configurations)
+- Edges = Actions (transitions between states)
+
+This implementation uses Adjacency List representation:
+• Space Complexity: O(V + E) - efficient for sparse graphs
+• Structure: Dictionary mapping each node to list of neighbors
+
+DFS ALGORITHM:
+1. Initialize: visited set, stack (FRONTIER), result list
+2. Add start node to stack
+3. While stack not empty:
+   a. Pop current node from stack
+   b. If not visited:
+      - Mark visited (EXPLORED set)
+      - Add to result
+      - Push all unvisited neighbors to stack (GENERATE successors)
+4. Return traversal order
+
+COMPLEXITY ANALYSIS:
+• Time Complexity: O(V + E)
+  - V = number of vertices, E = number of edges
+  - Each vertex visited once, each edge explored once
+  - AI notation: O(b^m) where b = branching factor, m = maximum depth
+
+• Space Complexity: O(V) worst case, O(h) average
+  - Stack stores at most the current path
+  - Visited set stores all discovered nodes
+  - h = height of tree (depth of recursion)
+  - More space-efficient than BFS for deep graphs
+
+KEY PROPERTIES:
+• Uses Stack (LIFO) data structure
+• Depth-first traversal
+• Does NOT guarantee shortest path
+• Complete for finite graphs only
+• Memory efficient (stores only current path)
+• Good for finding any solution (not necessarily optimal)
+
+COMPARISON WITH BFS:
+┌─────────────────┬──────────────────┬──────────────────┐
+│   Property      │       DFS        │       BFS        │
+├─────────────────┼──────────────────┼──────────────────┤
+│ Data Structure  │ Stack (LIFO)     │ Queue (FIFO)     │
+│ Traversal       │ Depth-first      │ Level-by-level   │
+│ Completeness    │ No (infinite)    │ Yes              │
+│ Optimality      │ No               │ Yes              │
+│ Time            │ O(V + E)         │ O(V + E)         │
+│ Space           │ O(h) - Low       │ O(V) - High      │
+│ Use Case        │ Deep search      │ Shortest path    │
+│ AI Application  │ Game trees, CSP  │ Planning, Robot  │
+└─────────────────┴──────────────────┴──────────────────┘
+h = height of tree, V = all vertices
+
+DFS VARIANTS:
+• Preorder DFS: Process node before children
+• Postorder DFS: Process node after children
+• Iterative DFS: Using explicit stack (implemented here)
+• Recursive DFS: Using function call stack
+
+================================================================================
+                                ALGORITHM
+================================================================================
+
+PSEUDOCODE (Iterative):
+
+DFS(graph, start_vertex):
+    Initialize:
+        visited = empty set
+        stack = empty stack
+        result = empty list
+    
+    stack.push(start_vertex)
+    
+    while stack is not empty:
+        current = stack.pop()
+        
+        if current not in visited:
+            visited.add(current)
+            result.append(current)
+            
+            for each neighbor of current (in reverse order):
+                if neighbor not in visited:
+                    stack.push(neighbor)
+    
+    return result
+
+
+STEP-BY-STEP EXAMPLE:
+
+Consider the graph:
+        1
+       / \
+      2   3
+     / \   \
+    4   5   6
+
+Starting DFS from vertex 1:
+
+Step 1: Push 1, Stack: [1], Visited: {}
+Step 2: Pop 1, mark visited
+        Push neighbors 3,2 (reverse sorted: 3 first, then 2)
+        Stack: [3, 2], Visited: {1}, Result: [1]
+Step 3: Pop 2, mark visited
+        Push neighbors 5,4
+        Stack: [3, 5, 4], Visited: {1, 2}, Result: [1, 2]
+Step 4: Pop 4, mark visited (no unvisited neighbors)
+        Stack: [3, 5], Visited: {1, 2, 4}, Result: [1, 2, 4]
+Step 5: Pop 5, mark visited (no unvisited neighbors)
+        Stack: [3], Visited: {1, 2, 4, 5}, Result: [1, 2, 4, 5]
+Step 6: Pop 3, mark visited
+        Push neighbor 6
+        Stack: [6], Visited: {1, 2, 3, 4, 5}, Result: [1, 2, 4, 5, 3]
+Step 7: Pop 6, mark visited (no unvisited neighbors)
+        Stack: [], Visited: {1, 2, 3, 4, 5, 6}, Result: [1, 2, 4, 5, 3, 6]
+
+DFS Traversal Order: 1 → 2 → 4 → 5 → 3 → 6
+
+Note: Goes deep along one branch (1→2→4→5) before backtracking to explore 
+other branches (3→6). This is the key difference from BFS.
+
+================================================================================
+                              IMPLEMENTATION
+================================================================================
+
+PROGRAM FEATURES:
+1. Automatic node generation (random or manual values)
+2. Automatic edge generation with validation
+3. Manual node and edge addition
+4. Interactive canvas-based graph building
+5. Visual DFS animation with color coding
+6. Graph statistics and adjacency list display
+7. Node and edge deletion capabilities
+8. Circular auto-layout for clean visualization
+9. Both BFS and DFS algorithms available for comparison
+
+DATA STRUCTURES USED:
+• Set - For storing nodes and visited tracking (O(1) lookup)
+• Dictionary - For adjacency list representation
+• List (as Stack) - For DFS stack operations
+• List - For storing edges and traversal order
+
+KEY CODE SNIPPETS:
+
+1. GRAPH CLASS STRUCTURE:
+---------------------------
+class Graph:
+    def __init__(self):
+        self.adjacency_list = {}  # {node: [neighbors]}
+        self.nodes = set()         # Set of all nodes
+    
+    def add_node(self, value):
+        if value not in self.nodes:
+            self.nodes.add(value)
+            self.adjacency_list[value] = []
+            return True
+        return False
+    
+    def add_edge(self, node1, node2):
+        if node1 in self.nodes and node2 in self.nodes:
+            if node2 not in self.adjacency_list[node1]:
+                self.adjacency_list[node1].append(node2)
+                self.adjacency_list[node2].append(node1)
+                return True
+        return False
+
+
+2. DFS TRAVERSAL IMPLEMENTATION (Iterative):
+---------------------------------------------
+def dfs_traversal(self, start_node):
+    if start_node not in self.nodes:
+        return []
+    
+    visited = set()
+    stack = [start_node]
+    traversal_order = []
+    
+    while stack:
+        current = stack.pop()  # LIFO - Last In First Out
+        
+        if current not in visited:
+            visited.add(current)
+            traversal_order.append(current)
+            
+            # Add unvisited neighbors to stack
+            # Reverse sorted for consistent traversal
+            for neighbor in sorted(self.adjacency_list[current], reverse=True):
+                if neighbor not in visited:
+                    stack.append(neighbor)
+    
+    return traversal_order
+
+
+3. COMPARISON: BFS vs DFS:
+---------------------------
+# BFS uses deque (Queue)
+from collections import deque
+queue = deque([start_node])
+current = queue.popleft()  # FIFO
+
+# DFS uses list (Stack)
+stack = [start_node]
+current = stack.pop()  # LIFO
+
+
+4. ANIMATED DFS VISUALIZATION:
+-------------------------------
+def animate_dfs(stack, visited):
+    if not stack:
+        # DFS complete
+        result_str = " → ".join(map(str, self.dfs_result))
+        self.dfs_label.config(text=f"DFS Traversal: {result_str}")
+        messagebox.showinfo("DFS Complete", f"DFS Traversal: {result_str}")
+        return
+    
+    current = stack.pop()
+    
+    if current in visited:
+        self.root.after(100, lambda: animate_dfs(stack, visited))
+        return
+    
+    visited.add(current)
+    self.dfs_result.append(current)
+    
+    # Highlight current node (Purple for DFS)
+    self.highlight_node(current, "purple")
+    
+    # Update label
+    result_str = " → ".join(map(str, self.dfs_result))
+    self.dfs_label.config(text=f"DFS Traversal (in progress): {result_str}")
+    
+    # Add unvisited neighbors to stack
+    for neighbor in sorted(self.graph.adjacency_list[current], reverse=True):
+        if neighbor not in visited:
+            stack.append(neighbor)
+            self.highlight_node(neighbor, "lavender")  # In stack
+    
+    # Continue animation with delay
+    self.root.after(500, lambda: animate_dfs(stack, visited))
+
+
+5. CIRCULAR LAYOUT ALGORITHM:
+------------------------------
+def arrange_nodes_circle(self):
+    nodes = sorted(self.graph.nodes)
+    n = len(nodes)
+    
+    center_x = canvas_width // 2
+    center_y = canvas_height // 2
+    radius = min(canvas_width, canvas_height) // 2 - 60
+    
+    for i, value in enumerate(nodes):
+        angle = 2 * math.pi * i / n - math.pi / 2
+        x = center_x + radius * math.cos(angle)
+        y = center_y + radius * math.sin(angle)
+        self.node_positions[value] = (x, y)
+
+
+VALIDATION IMPLEMENTED:
+• Integer-only input for node values
+• No duplicate nodes allowed
+• No duplicate edges allowed
+• No self-loops (edge from node to itself)
+• Minimum 2 nodes required for edge creation
+• Maximum edges enforced: n(n-1)/2 for undirected graph
+• Start node must exist in graph
+
+COLOR CODING:
+• Light Blue - Normal/unvisited nodes
+• Lavender - Nodes in stack (frontier)
+• Purple - Nodes being processed/visited
+• Orange - Nodes selected for edge creation
+
+================================================================================
+                                  OUTPUT
+================================================================================
+
+The program provides GUI version with both BFS and DFS algorithms:
+
+GUI VERSION:
+------------
+[Screenshot 1: Main GUI interface with canvas and control panel]
+[Screenshot 2: Graph with nodes arranged in circular layout]
+[Screenshot 3: DFS button highlighted in traversal section]
+[Screenshot 4: DFS animation showing color-coded nodes]
+  - Light Blue: Normal nodes
+  - Orange: Selected nodes
+  - Lavender: Nodes in stack (to be explored)
+  - Purple: Processed nodes (visited)
+[Screenshot 5: Both BFS and DFS results displayed for comparison]
+[Screenshot 6: Graph statistics popup window]
+[Screenshot 7: Adjacency list display in separate window]
+
+SAMPLE OUTPUT SCREENS:
+
+Screen 1 - Graph Construction:
+  Graph created with 8 nodes: [1, 2, 3, 4, 5, 6, 7, 8]
+  7 edges connecting nodes in tree structure
+  Edges: (1,2), (1,3), (2,4), (2,5), (3,6), (3,7), (5,8)
+  Circular layout applied automatically
+
+Screen 2 - DFS Execution:
+  Starting Node: 1
+  DFS Traversal Order: 1 → 2 → 4 → 5 → 8 → 3 → 6 → 7
+  
+  Animation shows:
+  Step 1: Node 1 turns purple (processed)
+  Step 2: Nodes 2, 3 turn lavender (in stack)
+  Step 3: Node 2 turns purple, goes deep into branch
+  Step 4: Nodes 4, 5 turn lavender
+  Step 5: Node 4 turns purple (leaf node)
+  Step 6: Backtrack, node 5 turns purple
+  ... (continues exploring depth-first)
+
+Screen 3 - Graph Statistics:
+  Total Nodes: 8
+  Total Edges: 7
+  Maximum Possible Edges: 28
+  Graph Density: 7/28 = 25%
+
+Screen 4 - Adjacency List:
+  1 → [2, 3]
+  2 → [1, 4, 5]
+  3 → [1, 6, 7]
+  4 → [2]
+  5 → [2, 8]
+  6 → [3]
+  7 → [3]
+  8 → [5]
+
+Screen 5 - Comparison (Same Graph, Same Start):
+  BFS from 1: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
+  DFS from 1: 1 → 2 → 4 → 5 → 8 → 3 → 6 → 7
+  
+  Observation: BFS explores level-by-level (1, then 2,3, then 4,5,6,7, then 8)
+               DFS goes deep (1→2→4, backtracks, 2→5→8, backtracks, 1→3→6,7)
+
+================================================================================
+                              OBSERVATIONS
+================================================================================
+
+1. DFS explores as deeply as possible along each branch before backtracking, 
+   in contrast to BFS which explores level-by-level.
+
+2. The algorithm uses significantly less memory than BFS as it only stores 
+   the current path, not all nodes at the current level.
+
+3. DFS does NOT guarantee the shortest path; it finds any path to the goal, 
+   which may not be optimal.
+
+4. Stack data structure (LIFO) is fundamental to DFS - determines depth-first 
+   exploration order.
+
+5. Time complexity O(V+E) is same as BFS, but space complexity O(h) is better 
+   for deep trees where h << V.
+
+6. The visited set is crucial to prevent infinite loops in graphs with cycles 
+   and to avoid revisiting nodes.
+
+7. For disconnected graphs, DFS will only traverse the connected component 
+   containing the start vertex, same as BFS.
+
+8. DFS is ideal for problems requiring complete path exploration (like maze 
+   solving) rather than shortest path finding.
+
+9. The order of adding neighbors to stack (sorted vs reverse sorted) affects 
+   which branch is explored first.
+
+10. Backtracking behavior is implicit in the stack-based iterative approach.
+
+================================================================================
+                              RESULT & CONCLUSION
+================================================================================
+
+RESULTS:
+✓ Successfully implemented DFS algorithm with O(V+E) time complexity
+✓ Created interactive GUI with graph visualization
+✓ Achieved animated DFS traversal with color-coded states
+✓ Implemented both BFS and DFS for side-by-side comparison
+✓ Verified correctness with multiple test cases
+
+CONCLUSION:
+This practical successfully demonstrates DFS as a fundamental AI search 
+algorithm through an interactive GUI application, highlighting its depth-first 
+exploration strategy.
+
+TECHNICAL ACHIEVEMENTS:
+• Correct DFS using stack (LIFO) data structure
+• Iterative implementation avoiding recursion limits
+• Adjacency list representation for efficient storage
+• Real-time visualization of algorithm execution
+• Comparison capability with BFS algorithm
+
+KEY LEARNINGS:
+1. DFS explores deeply before backtracking, unlike BFS's level-order approach
+2. Stack structure (LIFO) ensures depth-first exploration
+3. More memory efficient than BFS for deep search trees
+4. Does not guarantee shortest path but finds solutions faster in some cases
+5. Crucial for backtracking algorithms and constraint satisfaction problems
+6. Visual understanding of depth-first state space exploration
+
+PRACTICAL SIGNIFICANCE:
+• Foundation for backtracking algorithms in AI
+• Understanding of depth vs breadth tradeoffs in search
+• Application to game playing (game tree exploration)
+• Experience with iterative vs recursive algorithm implementation
+• Translation of theoretical concepts to working code
+
+BFS vs DFS INSIGHTS:
+• BFS is optimal for shortest path, DFS is optimal for memory
+• BFS explores breadth, DFS explores depth
+• BFS uses more memory, DFS uses less memory
+• BFS always finds shortest, DFS may find longer paths first
+• Both have O(V+E) time, but different space requirements
+• Choice depends on problem: shortest path (BFS) vs deep solution (DFS)
+
+================================================================================
+                            SIGNATURE
+================================================================================
+
+Student Signature: _________________          Date: _________________
+
+Faculty Signature: _________________          Date: _________________
+
+================================================================================
+                              END OF REPORT
+================================================================================

@@ -1,0 +1,7 @@
+build me a python script that i can give a youtube URL and it will
+1. Provide its transcript
+2. Summarize the video
+3. Give a tool to change temperature of response
+4. Make sure it adheres to project-guidelines.text
+
+ Use any NLP library necessary, but use python libraries only. If you need any LLM by any chance id prefer API call if not then just consult me once whatever youre doing

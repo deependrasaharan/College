@@ -1,0 +1,305 @@
+================================================================================
+                    ARTIFICIAL INTELLIGENCE LABORATORY
+                              PRACTICAL REPORT
+================================================================================
+
+PRACTICAL NO: 4
+
+TITLE: Understanding Semantic Web Technologies: RDF and OWL
+
+NAME: [Your Name]
+ROLL NO: [Your Roll Number]
+DATE: November 11, 2025
+
+================================================================================
+                                   AIM
+================================================================================
+
+To understand the fundamental concepts of Semantic Web technologies including
+RDF (Resource Description Framework) and OWL (Web Ontology Language), and
+their role in building machine-readable web content.
+
+================================================================================
+                               INTRODUCTION
+================================================================================
+
+The Semantic Web is an extension of the World Wide Web that enables machines
+to understand and process web content through structured data and standardized
+formats. Unlike the traditional web where information is primarily for human
+consumption, the Semantic Web makes data machine-readable, allowing computers
+to automatically discover, integrate, and reason over information.
+
+RELEVANCE TO ARTIFICIAL INTELLIGENCE:
+
+The Semantic Web is crucial for AI systems because it provides:
+• Knowledge Representation - Formal encoding of domain knowledge
+• Automated Reasoning - Logical inference over data
+• Data Integration - Combining information from multiple sources
+• Intelligent Search - Context-aware information retrieval
+
+Traditional web searches use keyword matching, but Semantic Web enables AI
+agents to understand meaning, relationships, and context, leading to more
+intelligent applications like question answering systems, recommendation
+engines, and knowledge graphs.
+
+================================================================================
+                                  THEORY
+================================================================================
+
+SEMANTIC WEB ARCHITECTURE:
+
+The Semantic Web is built on a layered architecture:
+
+  Logic & Reasoning Layer (Top)
+         ↓
+  OWL (Ontology Layer) - Complex relationships and constraints
+         ↓
+  RDFS (Schema Layer) - Basic classes and properties
+         ↓
+  RDF (Data Layer) - Triple-based data model
+         ↓
+  URI/XML (Foundation) - Identification and syntax
+
+Each layer adds more expressiveness, from simple data representation (RDF) to
+complex logical reasoning (OWL).
+
+TRADITIONAL WEB vs SEMANTIC WEB:
+
+┌─────────────────────┬─────────────────────┬─────────────────────┐
+│     Aspect          │   Traditional Web   │   Semantic Web      │
+├─────────────────────┼─────────────────────┼─────────────────────┤
+│ Content             │ HTML documents      │ RDF triples         │
+│ Understanding       │ Human-readable      │ Machine-readable    │
+│ Structure           │ Unstructured text   │ Structured graph    │
+│ Search              │ Keyword matching    │ Semantic queries    │
+│ Integration         │ Difficult           │ Easy (via URIs)     │
+│ Reasoning           │ Not possible        │ Logical inference   │
+└─────────────────────┴─────────────────────┴─────────────────────┘
+
+Example:
+  Traditional: <p>John works at Microsoft in Seattle</p>
+  (Machines cannot understand the relationship)
+  
+  Semantic: ex:John ex:worksFor ex:Microsoft .
+            ex:Microsoft ex:locatedIn ex:Seattle .
+  (Machines can infer: John works in Seattle)
+
+================================================================================
+                    RDF (RESOURCE DESCRIPTION FRAMEWORK)
+================================================================================
+
+DEFINITION:
+RDF is the foundational data model for the Semantic Web. It represents all
+information as a graph of subject-predicate-object triples.
+
+RDF TRIPLE STRUCTURE:
+
+Every statement has three parts:
+• Subject: The resource being described (URI)
+• Predicate: The property/relationship (URI)
+• Object: The value (URI or literal)
+
+Example:
+  <John> <hasAge> "30"
+  <John> <worksAt> <Microsoft>
+  <Microsoft> <locatedIn> <Seattle>
+
+This creates a graph:
+  [John] --hasAge--> [30]
+  [John] --worksAt--> [Microsoft]
+  [Microsoft] --locatedIn--> [Seattle]
+
+KEY FEATURES:
+
+1. URIs (Uniform Resource Identifiers):
+   Provide globally unique names, avoiding conflicts
+   Example: http://example.org/person/John
+
+2. Graph Structure:
+   Naturally represents relationships and connections
+
+3. Syntax Formats:
+   • Turtle: ex:John ex:hasAge 30 .
+   • RDF/XML: <rdf:Description about="John">...
+   • JSON-LD: {"@id": "John", "hasAge": 30}
+
+4. RDFS Extension:
+   RDF Schema adds basic vocabulary:
+   • Classes: rdfs:Class
+   • Properties: rdf:Property
+   • Hierarchies: rdfs:subClassOf
+   • Constraints: rdfs:domain, rdfs:range
+   
+   Example:
+   ex:Student rdfs:subClassOf ex:Person .
+   (Student IS-A Person - basic inheritance)
+
+BENEFITS:
+- Standard format for data exchange
+- URIs enable global data integration
+- Graph model represents complex relationships
+- Multiple sources can be merged seamlessly
+
+================================================================================
+                       OWL (WEB ONTOLOGY LANGUAGE)
+================================================================================
+
+DEFINITION:
+OWL is an ontology language built on RDF that adds logical constructs for
+complex relationships, constraints, and sophisticated reasoning. While RDF/RDFS
+provide basic data modeling, OWL enables rich knowledge representation.
+
+OWL VERSIONS:
+• OWL Lite - Simple constraints
+• OWL DL - Balance of expressiveness and decidability
+• OWL Full - Maximum expressiveness
+• OWL 2 - Current standard
+
+KEY FEATURES:
+
+1. PROPERTY CHARACTERISTICS:
+   
+   • Transitive Property
+     Example: hasAncestor
+     If: John hasAncestor Mary, Mary hasAncestor Sue
+     Then: John hasAncestor Sue (automatic inference)
+   
+   • Symmetric Property
+     Example: isSiblingOf
+     If: John isSiblingOf Mary
+     Then: Mary isSiblingOf John
+   
+   • Functional Property
+     Example: hasBirthDate (only one value allowed)
+   
+   • Inverse Property
+     Example: hasParent inverseOf hasChild
+
+2. CLASS OPERATIONS:
+   
+   • Intersection (AND): MaleProfessor = Male AND Professor
+   • Union (OR): Parent = Father OR Mother
+   • Complement (NOT): NonStudent = NOT Student
+
+3. CARDINALITY RESTRICTIONS:
+   
+   • Minimum: Person has at least 1 parent
+   • Maximum: Person has at most 2 biological parents
+   • Exact: Person has exactly 1 birthdate
+
+4. PROPERTY RESTRICTIONS:
+   
+   • owl:allValuesFrom - All values must be of type
+   • owl:someValuesFrom - At least one value exists
+   • owl:hasValue - Specific value constraint
+
+5. ADVANCED RELATIONSHIPS:
+   
+   • owl:equivalentClass - Same class, different names
+   • owl:disjointWith - No overlap (Male disjoint Female)
+   • owl:sameAs - Same individual
+   • owl:differentFrom - Different individuals
+
+REASONING EXAMPLE:
+
+Definitions:
+  Parent = Person AND hasChild some Person
+  Father = Parent AND Male
+
+Given:
+  John hasChild Mary
+  John type Male
+
+OWL Reasoner Infers:
+  1. John is Person (domain of hasChild)
+  2. John is Parent (has a child)
+  3. John is Father (Parent AND Male)
+  4. Mary is Person (range of hasChild)
+
+RDF vs OWL COMPARISON:
+
+┌──────────────┬──────────────────┬──────────────────┐
+│  Feature     │       RDF        │       OWL        │
+├──────────────┼──────────────────┼──────────────────┤
+│ Purpose      │ Data model       │ Logic/reasoning  │
+│ Expressivity │ Basic triples    │ Complex logic    │
+│ Reasoning    │ Minimal          │ Advanced         │
+│ Complexity   │ Simple           │ Complex          │
+│ Use Case     │ Data encoding    │ Knowledge model  │
+└──────────────┴──────────────────┴──────────────────┘
+
+Use RDF for: Basic data representation
+Use OWL for: Complex domain modeling with reasoning requirements
+
+REAL-WORLD APPLICATIONS:
+
+• Google Knowledge Graph - Uses semantic technologies
+• Medical Ontologies - SNOMED CT, Gene Ontology
+• Schema.org - Structured data for search engines
+• DBpedia - Structured data from Wikipedia
+• Government Open Data - Linked data initiatives
+
+================================================================================
+                              OBSERVATIONS
+================================================================================
+
+1. RDF provides the foundational triple-based data model for representing
+   information as graphs, enabling data integration through URIs.
+
+2. OWL significantly extends RDF with logical constructs, property
+   characteristics, and cardinality restrictions for sophisticated reasoning.
+
+3. The layered architecture (RDF → OWL) allows systems to choose appropriate
+   complexity - not all applications need full OWL reasoning.
+
+4. Semantic Web technologies enable machines to understand meaning and
+   context, not just process syntax, leading to intelligent AI systems.
+
+5. Real-world adoption in knowledge graphs, search engines, and healthcare
+   systems demonstrates practical value of semantic technologies.
+
+================================================================================
+                                CONCLUSION
+================================================================================
+
+The Semantic Web represents a fundamental shift from document-centric to
+data-centric web, enabling machine understanding through standardized formats
+and ontologies.
+
+KEY LEARNINGS:
+
+1. RDF triple structure (subject-predicate-object) is the foundation for
+   representing structured data as graphs with global URIs.
+
+2. OWL adds sophisticated logical constructs for complex reasoning, including
+   property characteristics (transitive, symmetric), cardinality restrictions,
+   and class operations.
+
+3. The layered approach provides increasing expressiveness: RDF for basic
+   data, RDFS for simple vocabularies, OWL for complex logic and reasoning.
+
+4. Semantic technologies enable AI systems to perform automated reasoning,
+   knowledge inference, and intelligent data integration.
+
+PRACTICAL SIGNIFICANCE:
+
+• Foundation for modern knowledge graphs (Google, LinkedIn, Facebook)
+• Critical for AI systems requiring structured knowledge representation
+• Enables semantic search, question answering, and recommendation systems
+• Powers healthcare ontologies, government open data, and e-commerce
+
+The Semantic Web transforms the web into a global database of structured,
+machine-readable data, forming the foundation for next-generation intelligent
+systems that can truly understand and reason about information.
+
+================================================================================
+                            SIGNATURE
+================================================================================
+
+Student Signature: _________________          Date: _________________
+
+Faculty Signature: _________________          Date: _________________
+
+================================================================================
+                              END OF REPORT
+================================================================================

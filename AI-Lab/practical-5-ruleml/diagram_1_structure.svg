@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="400" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">
+    RuleML Structure
+  </text>
+  
+  <!-- Root Box -->
+  <rect x="320" y="50" width="160" height="50" fill="#667eea" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="400" y="80" font-size="16" fill="white" text-anchor="middle" font-weight="bold">
+    RuleML Root
+  </text>
+  
+  <!-- Arrows from Root -->
+  <line x1="400" y1="100" x2="200" y2="150" stroke="#333" stroke-width="2"/>
+  <line x1="400" y1="100" x2="600" y2="150" stroke="#333" stroke-width="2"/>
+  
+  <!-- Job Definition Box -->
+  <rect x="120" y="150" width="160" height="50" fill="#764ba2" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="200" y="180" font-size="14" fill="white" text-anchor="middle" font-weight="bold">
+    Job Definition
+  </text>
+  
+  <!-- Rules Container Box -->
+  <rect x="520" y="150" width="160" height="50" fill="#764ba2" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="600" y="180" font-size="14" fill="white" text-anchor="middle" font-weight="bold">
+    Rule Categories
+  </text>
+  
+  <!-- Job Details -->
+  <line x1="200" y1="200" x2="200" y2="230" stroke="#333" stroke-width="2"/>
+  
+  <rect x="40" y="230" width="120" height="40" fill="#e1f5ff" stroke="#333" stroke-width="1" rx="3"/>
+  <text x="100" y="254" font-size="12" text-anchor="middle">Title: Senior</text>
+  <text x="100" y="266" font-size="11" text-anchor="middle">Software Dev</text>
+  
+  <rect x="200" y="230" width="120" height="40" fill="#e1f5ff" stroke="#333" stroke-width="1" rx="3"/>
+  <text x="260" y="250" font-size="11" text-anchor="middle">Required Skills: 5</text>
+  <text x="260" y="262" font-size="11" text-anchor="middle">Optional Skills: 5</text>
+  
+  <!-- Rule Categories -->
+  <line x1="600" y1="200" x2="600" y2="230" stroke="#333" stroke-width="2"/>
+  <line x1="600" y1="230" x2="450" y2="260" stroke="#333" stroke-width="2"/>
+  <line x1="600" y1="230" x2="600" y2="260" stroke="#333" stroke-width="2"/>
+  <line x1="600" y1="230" x2="750" y2="260" stroke="#333" stroke-width="2"/>
+  
+  <!-- Acceptance Rules -->
+  <rect x="380" y="260" width="140" height="45" fill="#11998e" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="450" y="280" font-size="13" fill="white" text-anchor="middle" font-weight="bold">
+    ✅ Acceptance
+  </text>
+  <text x="450" y="295" font-size="11" fill="white" text-anchor="middle">
+    3 Rules
+  </text>
+  
+  <!-- Rejection Rules -->
+  <rect x="530" y="260" width="140" height="45" fill="#fa709a" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="600" y="280" font-size="13" fill="white" text-anchor="middle" font-weight="bold">
+    ❌ Rejection
+  </text>
+  <text x="600" y="295" font-size="11" fill="white" text-anchor="middle">
+    4 Rules
+  </text>
+  
+  <!-- Review Rules -->
+  <rect x="680" y="260" width="140" height="45" fill="#f093fb" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="750" y="280" font-size="13" fill="white" text-anchor="middle" font-weight="bold">
+    👁 Review
+  </text>
+  <text x="750" y="295" font-size="11" fill="white" text-anchor="middle">
+    5 Rules
+  </text>
+  
+  <!-- Sample Rule Structure -->
+  <rect x="150" y="340" width="500" height="220" fill="#f9f9f9" stroke="#667eea" stroke-width="3" rx="8"/>
+  <text x="400" y="365" font-size="16" text-anchor="middle" font-weight="bold" fill="#667eea">
+    Individual Rule Structure
+  </text>
+  
+  <!-- Rule Element -->
+  <rect x="180" y="380" width="440" height="40" fill="#fff" stroke="#333" stroke-width="1" rx="3"/>
+  <text x="200" y="405" font-size="12" font-weight="bold">Rule Element:</text>
+  <text x="310" y="405" font-size="11">id="auto_accept_excellent"</text>
+  
+  <!-- Condition Block -->
+  <rect x="180" y="430" width="200" height="110" fill="#fff4e1" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="280" y="450" font-size="13" font-weight="bold" text-anchor="middle">Condition Block</text>
+  <text x="190" y="470" font-size="11">type: AND / OR</text>
+  <line x1="190" y1="475" x2="370" y2="475" stroke="#ddd" stroke-width="1"/>
+  <text x="190" y="490" font-size="10">Requirements:</text>
+  <text x="200" y="505" font-size="10">• field: education</text>
+  <text x="200" y="520" font-size="10">• operator: gte, eq, in</text>
+  <text x="200" y="535" font-size="10">• value: Bachelor</text>
+  
+  <!-- Action Block -->
+  <rect x="420" y="430" width="200" height="110" fill="#e1ffe1" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="520" y="450" font-size="13" font-weight="bold" text-anchor="middle">Action Block</text>
+  <text x="430" y="470" font-size="11">Output:</text>
+  <line x1="430" y1="475" x2="610" y2="475" stroke="#ddd" stroke-width="1"/>
+  <text x="430" y="490" font-size="10">• decision: ACCEPT</text>
+  <text x="430" y="505" font-size="10">• reason: "Excellent..."</text>
+  <text x="430" y="520" font-size="10">• priority: 1</text>
+  <text x="430" y="535" font-size="10">• rule_id: auto_accept...</text>
+  
+  <!-- Arrow between blocks -->
+  <path d="M 380 485 L 410 485 L 405 480 M 410 485 L 405 490" 
+        fill="none" stroke="#333" stroke-width="2"/>
+  
+</svg>

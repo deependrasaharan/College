@@ -1,0 +1,208 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                     BFS-DFS GUI - QUICK REFERENCE                        ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+📦 FILE: bfs-dfs-gui.py
+📍 PATH: College/AI-Lab/practical-1/bfs-dfs-gui.py
+🚀 RUN:  python3 bfs-dfs-gui.py
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                          🎯 KEY FEATURES                               ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  ✓ BFS Algorithm (Queue-based, level-order)
+  ✓ DFS Algorithm (Stack-based, depth-first)
+  ✓ Visual Animation (both algorithms)
+  ✓ Auto/Manual Graph Generation
+  ✓ Interactive Node/Edge Creation
+  ✓ Delete Operations
+  ✓ Circular Layout
+  ✓ Adjacency List Display
+  ✓ Graph Statistics
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                    🔍 BFS vs 🌲 DFS COMPARISON                         ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  ┌─────────────────┬─────────────────┬─────────────────┐
+  │   Property      │      BFS        │      DFS        │
+  ├─────────────────┼─────────────────┼─────────────────┤
+  │ Structure       │ Queue (FIFO)    │ Stack (LIFO)    │
+  │ Order           │ Level-by-level  │ Depth-first     │
+  │ Color (Active)  │ Green           │ Purple          │
+  │ Color (Queue)   │ Light Green     │ Lavender        │
+  │ Optimal         │ Yes (unweighted)│ No              │
+  │ Memory          │ High            │ Low             │
+  │ Time            │ O(V + E)        │ O(V + E)        │
+  │ Space           │ O(V)            │ O(V)            │
+  └─────────────────┴─────────────────┴─────────────────┘
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                       ⚡ QUICK START GUIDE                             ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  1️⃣  Launch Program
+      $ python3 bfs-dfs-gui.py
+
+  2️⃣  Generate Graph (Quick)
+      • Click "🔢 Generate Nodes Auto"
+      • Enter number (e.g., 8)
+      • Select "Yes" for random values
+      • Click "🔗 Generate Edges Auto"
+      • Enter number (e.g., 10)
+
+  3️⃣  Run BFS
+      • Click "🔍 Run BFS"
+      • Enter start node
+      • Watch green animation
+
+  4️⃣  Run DFS
+      • Click "🌲 Run DFS"
+      • Enter start node
+      • Watch purple animation
+
+  5️⃣  Compare Results
+      • BFS result: below canvas (green text)
+      • DFS result: below BFS (red text)
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                         🎨 BUTTON GUIDE                                ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  AUTOMATIC GENERATION:
+    🔢 Generate Nodes Auto    - Create multiple nodes
+    🔗 Generate Edges Auto    - Create random connections
+
+  MANUAL OPERATIONS:
+    ➕ Add Node Manually       - Add single node
+    🔗 Add Edge Manually       - Connect two nodes
+
+  DELETE OPERATIONS:
+    🗑️  Delete Node            - Remove node + edges
+    ✂️  Delete Edge            - Remove edge only
+
+  TRAVERSAL:
+    🔍 Run BFS                - Breadth-First Search
+    🌲 Run DFS                - Depth-First Search
+    🔄 Reset Colors           - Clear animations
+
+  DISPLAY & INFO:
+    📊 Show Graph Info        - Statistics popup
+    📋 Show Adjacency List    - List view popup
+
+  UTILITIES:
+    🎨 Reorganize Layout      - Circular arrangement
+    🧹 Clear Graph            - Remove everything
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                      🖱️  MOUSE INTERACTIONS                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  Normal Mode:
+    • Click empty space → Add new node
+    • Click node → Select for edge
+    • Click 2nd node → Create edge
+
+  Delete Node Mode:
+    • Click node → Delete confirmation
+
+  Delete Edge Mode:
+    • Click 1st node → Select
+    • Click 2nd node → Delete edge
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                         💡 PRO TIPS                                    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  ✓ Start with 6-10 nodes for clear visualization
+  ✓ Use "Reorganize Layout" for better node placement
+  ✓ Run BFS first, then DFS to compare
+  ✓ Try different start nodes to see variations
+  ✓ Use "Reset Colors" before new traversal
+  ✓ Check "Show Adjacency List" to verify connections
+  ✓ Node values must be unique integers
+  ✓ No self-loops or duplicate edges allowed
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                    🎓 EDUCATIONAL OBJECTIVES                           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  Learn:
+    ✓ Graph representation (adjacency list)
+    ✓ BFS algorithm (Queue, FIFO)
+    ✓ DFS algorithm (Stack, LIFO)
+    ✓ Uninformed search strategies in AI
+    ✓ Algorithm complexity analysis
+    ✓ Visual algorithm understanding
+    ✓ Data structure applications
+
+  Understand:
+    ✓ Why BFS finds shortest path
+    ✓ Why DFS uses less memory
+    ✓ When to use each algorithm
+    ✓ How graph traversal works
+    ✓ State space exploration in AI
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                      📊 SAMPLE OUTPUTS                                 ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  Graph: 8 nodes, 7 edges (tree structure)
+  Start: Node 1
+
+  BFS: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
+       (explores all neighbors at each level)
+
+  DFS: 1 → 2 → 4 → 5 → 8 → 3 → 6 → 7
+       (goes deep on one branch first)
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                       🐛 TROUBLESHOOTING                               ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  Problem: Animation not showing
+  ➜ Solution: Reset colors first, then run traversal
+
+  Problem: Can't add edge
+  ➜ Solution: Need at least 2 nodes in graph
+
+  Problem: Delete not working
+  ➜ Solution: Enter delete mode first, then click
+
+  Problem: Nodes overlapping
+  ➜ Solution: Click "🎨 Reorganize Layout"
+
+  Problem: Lost traversal results
+  ➜ Solution: Results stay until reset/clear
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                     ✅ VERIFICATION CHECKLIST                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  ✅ Program launches without errors
+  ✅ BFS button works and animates
+  ✅ DFS button works and animates
+  ✅ Both results display correctly
+  ✅ Colors are distinct (green vs purple)
+  ✅ Auto generation works
+  ✅ Manual operations work
+  ✅ Delete operations work
+  ✅ All buttons functional
+  ✅ No crashes or freezes
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                      📚 RELATED FILES                                  ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  bfs-dfs-gui.py         - Main program (NEW)
+  test_bfs_dfs.py        - Algorithm test script
+  BFS_DFS_SUMMARY.txt    - Complete documentation
+  BFS_DFS_UPDATES.md     - Technical details
+  PRACTICAL_REPORT.txt   - Lab report
+  bfs-traversal-gui.py   - Original (BFS only)
+  bfs-traversal.py       - CLI version
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                   🎉 Ready to Use - No Setup Required!                   ║
+║                      Developed for AI-Lab Practical                      ║
+╚══════════════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,343 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                  AI LAB PRACTICAL 1 & 2 - FILE INDEX                     ║
+║              Graph Traversal: BFS and DFS Algorithms                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+📍 Location: College/AI-Lab/practical-1/
+
+================================================================================
+                        📚 PRACTICAL REPORTS (FOR LAB)
+================================================================================
+
+🎯 PRIMARY SUBMISSION FILES:
+
+  📄 PRACTICAL_REPORT.txt
+     • Practical No: 1
+     • Topic: Breadth-First Search (BFS)
+     • Date: November 3, 2025
+     • Complete lab report with theory, algorithm, code, observations
+     • Ready for submission (just add name, roll no, screenshots)
+
+  📄 PRACTICAL_REPORT_DFS.txt
+     • Practical No: 2
+     • Topic: Depth-First Search (DFS)
+     • Date: November 4, 2025
+     • Complete lab report with theory, algorithm, code, observations
+     • Ready for submission (just add name, roll no, screenshots)
+
+  📄 REPORT_COMPARISON.txt
+     • Side-by-side comparison of BFS vs DFS reports
+     • When to use which algorithm
+     • Learning outcomes
+     • Submission checklist
+
+================================================================================
+                     💻 EXECUTABLE PROGRAMS (MAIN CODE)
+================================================================================
+
+🚀 MAIN PROGRAM:
+
+  🟢 bfs-dfs-gui.py  ⭐ [PRIMARY - USE THIS]
+     • Complete GUI with BOTH BFS and DFS algorithms
+     • 940+ lines of code
+     • All features: auto/manual graph generation, visualization, animation
+     • Run: python3 bfs-dfs-gui.py
+     • Self-sufficient (no external dependencies)
+
+📦 LEGACY PROGRAMS:
+
+  🔵 bfs-traversal-gui.py
+     • Original BFS-only version
+     • Kept for reference
+     • Use bfs-dfs-gui.py instead
+
+  🔵 bfs-traversal.py
+     • Command-line interface version
+     • Text-based BFS implementation
+     • No GUI, simple console program
+
+================================================================================
+                    🧪 TESTING & VERIFICATION FILES
+================================================================================
+
+  ✅ test_bfs_dfs.py
+     • Automated test script for both algorithms
+     • Verifies correctness of BFS and DFS
+     • Run: python3 test_bfs_dfs.py
+     • Shows sample outputs and comparisons
+
+  📊 test_cases.py
+     • Additional test cases
+     • Legacy file
+
+================================================================================
+                    📖 DOCUMENTATION & GUIDES
+================================================================================
+
+🔷 COMPREHENSIVE DOCUMENTATION:
+
+  📘 BFS_DFS_SUMMARY.txt
+     • Complete technical summary
+     • All features explained
+     • Algorithm details
+     • Testing results
+     • ~200 lines of comprehensive info
+
+  📗 BFS_DFS_UPDATES.md
+     • Technical update log
+     • What was changed from BFS-only to BFS+DFS
+     • Code snippets and explanations
+     • Markdown format
+
+🔷 QUICK REFERENCE:
+
+  📙 QUICK_REFERENCE.txt
+     • Quick command reference card
+     • Button guide
+     • Color coding
+     • Pro tips
+     • Troubleshooting
+     • One-page reference
+
+  📕 QUICK_START.py
+     • Quick start demo
+     • Legacy file
+
+🔷 ADDITIONAL GUIDES:
+
+  📓 GUI_USER_GUIDE.md
+     • Detailed GUI usage guide
+     • All features explained
+
+  📔 FEATURE_COMPARISON.md
+     • Feature comparison between versions
+
+  📄 README.md / README_BFS.md
+     • General readme files
+
+  📄 PROJECT_SUMMARY.md
+     • Project overview
+
+================================================================================
+                    📊 DOCUMENT HIERARCHY (READ ORDER)
+================================================================================
+
+For Students Starting Fresh:
+  1. QUICK_REFERENCE.txt          ← Start here (2 min read)
+  2. PRACTICAL_REPORT.txt          ← BFS practical (15 min)
+  3. PRACTICAL_REPORT_DFS.txt      ← DFS practical (15 min)
+  4. REPORT_COMPARISON.txt         ← Compare both (10 min)
+  5. bfs-dfs-gui.py                ← Run the program
+  6. test_bfs_dfs.py               ← Test it
+
+For Deep Understanding:
+  1. REPORT_COMPARISON.txt         ← Conceptual differences
+  2. BFS_DFS_SUMMARY.txt           ← Technical details
+  3. BFS_DFS_UPDATES.md            ← Implementation details
+  4. Code files                    ← Read actual code
+
+For Quick Usage:
+  1. QUICK_REFERENCE.txt           ← Commands and buttons
+  2. bfs-dfs-gui.py                ← Run immediately
+
+For Lab Submission:
+  1. PRACTICAL_REPORT.txt          ← For BFS practical
+     OR
+     PRACTICAL_REPORT_DFS.txt      ← For DFS practical
+  2. bfs-dfs-gui.py                ← Code to submit
+  3. Screenshots                   ← Capture from GUI
+
+================================================================================
+                        📁 FILE CATEGORIES
+================================================================================
+
+MUST READ (For Lab):
+  ✓ PRACTICAL_REPORT.txt
+  ✓ PRACTICAL_REPORT_DFS.txt
+  ✓ QUICK_REFERENCE.txt
+
+MUST RUN (For Lab):
+  ✓ bfs-dfs-gui.py
+  ✓ test_bfs_dfs.py
+
+REFERENCE (For Understanding):
+  ⊙ BFS_DFS_SUMMARY.txt
+  ⊙ REPORT_COMPARISON.txt
+  ⊙ BFS_DFS_UPDATES.md
+
+OPTIONAL (Extra Info):
+  ○ GUI_USER_GUIDE.md
+  ○ FEATURE_COMPARISON.md
+  ○ Other .md and .py files
+
+================================================================================
+                        🎯 QUICK ACCESS GUIDE
+================================================================================
+
+What I Need                          File to Open
+─────────────────────────────────────────────────────────────────────────
+Lab report for BFS                   PRACTICAL_REPORT.txt
+Lab report for DFS                   PRACTICAL_REPORT_DFS.txt
+Compare BFS and DFS                  REPORT_COMPARISON.txt
+Run the program                      bfs-dfs-gui.py
+Quick commands                       QUICK_REFERENCE.txt
+Full documentation                   BFS_DFS_SUMMARY.txt
+Test the algorithms                  test_bfs_dfs.py
+Understand changes made              BFS_DFS_UPDATES.md
+How to use GUI                       GUI_USER_GUIDE.md
+This index                           FILE_INDEX.txt
+
+================================================================================
+                        📋 FILE SIZE REFERENCE
+================================================================================
+
+File Name                    Size    Type      Purpose
+─────────────────────────────────────────────────────────────────────────
+bfs-dfs-gui.py              ~30KB   Python    Main program
+PRACTICAL_REPORT.txt        ~17KB   Text      BFS lab report
+PRACTICAL_REPORT_DFS.txt    ~20KB   Text      DFS lab report
+BFS_DFS_SUMMARY.txt         ~15KB   Text      Complete summary
+REPORT_COMPARISON.txt       ~12KB   Text      Comparison guide
+QUICK_REFERENCE.txt         ~8KB    Text      Quick reference
+BFS_DFS_UPDATES.md          ~8KB    Markdown  Update log
+test_bfs_dfs.py             ~4KB    Python    Test script
+FILE_INDEX.txt              ~8KB    Text      This file
+
+================================================================================
+                        🎓 LEARNING PATH
+================================================================================
+
+Day 1 - Understanding BFS:
+  □ Read QUICK_REFERENCE.txt (basics)
+  □ Run bfs-dfs-gui.py and create a graph
+  □ Click "Run BFS" and observe animation
+  □ Read PRACTICAL_REPORT.txt (theory)
+  □ Take screenshots for submission
+  □ Fill name/roll in PRACTICAL_REPORT.txt
+  
+Day 2 - Understanding DFS:
+  □ Run bfs-dfs-gui.py again
+  □ Click "Run DFS" on same graph
+  □ Compare BFS and DFS results
+  □ Read PRACTICAL_REPORT_DFS.txt (theory)
+  □ Read REPORT_COMPARISON.txt (differences)
+  □ Take screenshots for submission
+  □ Fill name/roll in PRACTICAL_REPORT_DFS.txt
+
+Day 3 - Deep Dive:
+  □ Read BFS_DFS_SUMMARY.txt (technical)
+  □ Run test_bfs_dfs.py (verify)
+  □ Read code in bfs-dfs-gui.py
+  □ Experiment with different graphs
+  □ Try different start nodes
+
+================================================================================
+                        ✅ COMPLETION CHECKLIST
+================================================================================
+
+Before Submission:
+  ☐ Filled name and roll number in report(s)
+  ☐ Captured all required screenshots
+  ☐ Verified program runs without errors
+  ☐ Tested both BFS and DFS
+  ☐ Read and understood the theory
+  ☐ Can explain time and space complexity
+  ☐ Can explain when to use BFS vs DFS
+  ☐ Got faculty signature
+  ☐ Attached code file (bfs-dfs-gui.py)
+
+Understanding Check:
+  ☐ Can explain what BFS does
+  ☐ Can explain what DFS does
+  ☐ Know the difference between Queue and Stack
+  ☐ Understand FIFO vs LIFO
+  ☐ Can draw execution on sample graph
+  ☐ Know time complexity: O(V+E)
+  ☐ Know space complexity: O(V) vs O(h)
+  ☐ Can list 3 applications of each
+
+================================================================================
+                        🆘 TROUBLESHOOTING
+================================================================================
+
+Problem: Don't know where to start
+Solution: Open QUICK_REFERENCE.txt, then run bfs-dfs-gui.py
+
+Problem: Need to submit BFS practical
+Solution: Use PRACTICAL_REPORT.txt, fill details, add screenshots
+
+Problem: Need to submit DFS practical  
+Solution: Use PRACTICAL_REPORT_DFS.txt, fill details, add screenshots
+
+Problem: Want to understand differences
+Solution: Read REPORT_COMPARISON.txt
+
+Problem: Program won't run
+Solution: Check Python 3 installed, run: python3 bfs-dfs-gui.py
+
+Problem: Need complete technical details
+Solution: Read BFS_DFS_SUMMARY.txt
+
+Problem: Lost in too many files
+Solution: You're reading the right file! Follow the guide above.
+
+================================================================================
+                        💡 PRO TIPS
+================================================================================
+
+✓ Start with QUICK_REFERENCE.txt - it's your friend!
+✓ Use REPORT_COMPARISON.txt to understand BFS vs DFS quickly
+✓ The practical reports are READY - just add your details
+✓ Take screenshots BEFORE closing the program
+✓ Try the same graph with both BFS and DFS to see differences
+✓ Use test_bfs_dfs.py to verify your understanding
+✓ Read the code comments in bfs-dfs-gui.py for learning
+
+================================================================================
+                        📞 QUICK COMMANDS
+================================================================================
+
+Run main program:
+  $ python3 bfs-dfs-gui.py
+
+Run tests:
+  $ python3 test_bfs_dfs.py
+
+Check Python version:
+  $ python3 --version
+
+List all files:
+  $ ls -lh
+
+Read a file:
+  $ cat FILENAME.txt
+
+Edit report:
+  $ nano PRACTICAL_REPORT.txt
+  (or use any text editor)
+
+================================================================================
+                        🏆 FINAL NOTES
+================================================================================
+
+This practical covers TWO fundamental AI search algorithms:
+  1. BFS (Breadth-First Search) - Practical 1
+  2. DFS (Depth-First Search) - Practical 2
+
+Both use the SAME program (bfs-dfs-gui.py) but different buttons.
+
+The documentation is comprehensive and ready for submission.
+Just add your personal details and screenshots!
+
+All files are self-contained and well-documented.
+No external dependencies required.
+
+Good luck with your practicals! 🎓
+
+================================================================================
+                        END OF INDEX
+================================================================================
+
+Generated: November 4, 2025
+Program: bfs-dfs-gui.py
+Reports: PRACTICAL_REPORT.txt, PRACTICAL_REPORT_DFS.txt

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RuleML-based Job Application Screening Rules -->
+<RuleML xmlns="http://ruleml.org/spec">
+  
+  <!-- Job Position: Senior Software Developer -->
+  <job id="senior_software_developer">
+    <title>Senior Software Developer</title>
+    <description>Backend development role requiring strong experience</description>
+    
+    <!-- ACCEPTANCE RULES (Auto-Accept) -->
+    <acceptance_rules>
+      
+      <!-- Rule 1: Excellent candidate with strong qualifications -->
+      <rule id="auto_accept_excellent">
+        <condition type="AND">
+          <requirement field="education" operator="in" value="Bachelor,Master,PhD"/>
+          <requirement field="experience" operator="gte" value="5"/>
+          <requirement field="required_skills_match" operator="gte" value="4"/>
+        </condition>
+        <action>
+          <decision>ACCEPT</decision>
+          <reason>Excellent candidate with strong qualifications and extensive experience</reason>
+          <priority>1</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 2: Strong candidate with all required skills -->
+      <rule id="auto_accept_all_skills">
+        <condition type="AND">
+          <requirement field="education" operator="in" value="Bachelor,Master,PhD"/>
+          <requirement field="experience" operator="gte" value="3"/>
+          <requirement field="required_skills_match" operator="eq" value="5"/>
+        </condition>
+        <action>
+          <decision>ACCEPT</decision>
+          <reason>Strong candidate with all required skills and good experience</reason>
+          <priority>2</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 3: Master's/PhD with good experience -->
+      <rule id="auto_accept_advanced_degree">
+        <condition type="AND">
+          <requirement field="education" operator="in" value="Master,PhD"/>
+          <requirement field="experience" operator="gte" value="4"/>
+          <requirement field="required_skills_match" operator="gte" value="3"/>
+        </condition>
+        <action>
+          <decision>ACCEPT</decision>
+          <reason>Advanced degree holder with solid experience</reason>
+          <priority>3</priority>
+        </action>
+      </rule>
+      
+    </acceptance_rules>
+    
+    <!-- REJECTION RULES (Auto-Reject) -->
+    <rejection_rules>
+      
+      <!-- Rule 1: Education requirement not met -->
+      <rule id="reject_education">
+        <condition type="OR">
+          <requirement field="education" operator="eq" value="High School"/>
+          <requirement field="education" operator="eq" value="None"/>
+        </condition>
+        <action>
+          <decision>REJECT</decision>
+          <reason>Minimum education requirement (Bachelor's degree) not met</reason>
+          <priority>1</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 2: Insufficient experience -->
+      <rule id="reject_experience">
+        <condition type="AND">
+          <requirement field="education" operator="eq" value="Bachelor"/>
+          <requirement field="experience" operator="lt" value="2"/>
+        </condition>
+        <action>
+          <decision>REJECT</decision>
+          <reason>Insufficient professional experience (minimum 2 years required)</reason>
+          <priority>2</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 3: Missing too many required skills -->
+      <rule id="reject_skills">
+        <condition>
+          <requirement field="required_skills_match" operator="lt" value="2"/>
+        </condition>
+        <action>
+          <decision>REJECT</decision>
+          <reason>Insufficient required skills (less than 2 out of 5 required skills)</reason>
+          <priority>3</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 4: No relevant experience in required field -->
+      <rule id="reject_no_relevant_experience">
+        <condition type="AND">
+          <requirement field="experience" operator="gte" value="0"/>
+          <requirement field="relevant_experience" operator="eq" value="false"/>
+          <requirement field="required_skills_match" operator="lt" value="3"/>
+        </condition>
+        <action>
+          <decision>REJECT</decision>
+          <reason>No relevant experience in software development</reason>
+          <priority>4</priority>
+        </action>
+      </rule>
+      
+    </rejection_rules>
+    
+    <!-- REVIEW RULES (Manual Review Required) -->
+    <review_rules>
+      
+      <!-- Rule 1: Career changer with potential -->
+      <rule id="review_career_change">
+        <condition type="AND">
+          <requirement field="education" operator="in" value="Bachelor,Master"/>
+          <requirement field="experience" operator="gte" value="2"/>
+          <requirement field="experience" operator="lt" value="3"/>
+          <requirement field="required_skills_match" operator="gte" value="3"/>
+        </condition>
+        <action>
+          <decision>REVIEW</decision>
+          <reason>Good education and skills but limited experience - requires interview</reason>
+          <priority>1</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 2: Experienced but missing some skills -->
+      <rule id="review_missing_skills">
+        <condition type="AND">
+          <requirement field="education" operator="in" value="Bachelor,Master,PhD"/>
+          <requirement field="experience" operator="gte" value="4"/>
+          <requirement field="required_skills_match" operator="eq" value="3"/>
+        </condition>
+        <action>
+          <decision>REVIEW</decision>
+          <reason>Strong experience but missing some key skills - worth interviewing</reason>
+          <priority>2</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 3: Associate degree with exceptional experience -->
+      <rule id="review_associate_exceptional">
+        <condition type="AND">
+          <requirement field="education" operator="eq" value="Associate"/>
+          <requirement field="experience" operator="gte" value="6"/>
+          <requirement field="required_skills_match" operator="gte" value="4"/>
+        </condition>
+        <action>
+          <decision>REVIEW</decision>
+          <reason>Lower education but exceptional experience compensates</reason>
+          <priority>3</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 4: Recent graduate with strong skills -->
+      <rule id="review_recent_grad">
+        <condition type="AND">
+          <requirement field="education" operator="in" value="Master,PhD"/>
+          <requirement field="experience" operator="gte" value="1"/>
+          <requirement field="experience" operator="lt" value="3"/>
+          <requirement field="required_skills_match" operator="gte" value="4"/>
+        </condition>
+        <action>
+          <decision>REVIEW</decision>
+          <reason>Advanced degree with strong skills but limited work experience</reason>
+          <priority>4</priority>
+        </action>
+      </rule>
+      
+      <!-- Rule 5: Borderline candidate -->
+      <rule id="review_borderline">
+        <condition type="AND">
+          <requirement field="education" operator="in" value="Bachelor,Associate"/>
+          <requirement field="experience" operator="gte" value="3"/>
+          <requirement field="required_skills_match" operator="eq" value="2"/>
+        </condition>
+        <action>
+          <decision>REVIEW</decision>
+          <reason>Borderline candidate - portfolio review recommended</reason>
+          <priority>5</priority>
+        </action>
+      </rule>
+      
+    </review_rules>
+    
+    <!-- Required Skills List -->
+    <required_skills>
+      <skill>Python</skill>
+      <skill>Django/Flask</skill>
+      <skill>SQL/Database</skill>
+      <skill>REST APIs</skill>
+      <skill>Git/Version Control</skill>
+    </required_skills>
+    
+    <!-- Optional Skills (Bonus) -->
+    <optional_skills>
+      <skill>Docker</skill>
+      <skill>AWS/Cloud</skill>
+      <skill>Redis/Caching</skill>
+      <skill>CI/CD</skill>
+      <skill>Microservices</skill>
+    </optional_skills>
+    
+  </job>
+  
+</RuleML>

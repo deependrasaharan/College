@@ -1,0 +1,31 @@
+# YouTube Video Summarizer - Python Dependencies
+# Install all packages: pip install -r requirements.txt
+
+# Web Framework
+flask==3.0.0                      # Web application framework
+Werkzeug==3.0.1                   # WSGI utility library for Flask
+
+# YouTube Data Extraction
+youtube-transcript-api==0.6.2     # Fetch video transcripts/captions
+yt-dlp==2024.11.18               # Backup method for transcript extraction
+google-api-python-client==2.187.0 # YouTube Data API v3 for comments (requires YOUTUBE_API_KEY in .env)
+
+# AI/NLP Libraries
+google-generativeai==0.8.5        # Google Gemini API for summarization (requires GEMINI_API_KEY in .env)
+textblob==0.18.0                  # Sentiment analysis for comments (no API key needed)
+nltk==3.9.2                       # Natural Language Toolkit for preprocessing (tokenization, stop-words)
+rouge-score==0.1.2                # ROUGE evaluation metrics for summary quality
+pandas==2.3.3                     # Data manipulation for sentiment evaluation
+scikit-learn==1.7.2               # Machine learning metrics (accuracy, F1-score, confusion matrix)
+
+# Utilities
+python-dotenv==1.0.0              # Load environment variables from .env file
+
+# Note: After installing, run these commands to download NLTK data:
+# python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords'); nltk.download('brown')"
+
+# API Keys Required (add to .env file):
+# 1. GEMINI_API_KEY - Get from: https://makersuite.google.com/app/apikey
+# 2. YOUTUBE_API_KEY - Get from: https://console.cloud.google.com/apis/credentials
+#    (Enable YouTube Data API v3 in Google Cloud Console)
+#    Optional: Only needed for comment analysis feature

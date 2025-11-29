@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="650" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="350" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">
+    RuleML Evaluation Flow
+  </text>
+  
+  <!-- Start -->
+  <ellipse cx="350" cy="70" rx="80" ry="30" fill="#90EE90" stroke="#333" stroke-width="2"/>
+  <text x="350" y="78" font-size="13" text-anchor="middle" font-weight="bold">Form Submit</text>
+  
+  <path d="M 350 100 L 350 130" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Parse Data -->
+  <rect x="280" y="130" width="140" height="50" fill="#87CEEB" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="350" y="152" font-size="12" text-anchor="middle" font-weight="bold">Parse RuleML</text>
+  <text x="350" y="168" font-size="11" text-anchor="middle">Extract Data</text>
+  
+  <path d="M 350 180 L 350 210" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Count Skills -->
+  <rect x="280" y="210" width="140" height="50" fill="#87CEEB" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="350" y="232" font-size="12" text-anchor="middle" font-weight="bold">Count Skills</text>
+  <text x="350" y="248" font-size="11" text-anchor="middle">Build Object</text>
+  
+  <path d="M 350 260 L 350 290" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Check Rejection -->
+  <rect x="280" y="290" width="140" height="60" fill="#764ba2" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="350" y="310" font-size="13" text-anchor="middle" fill="white" font-weight="bold">Check</text>
+  <text x="350" y="327" font-size="13" text-anchor="middle" fill="white" font-weight="bold">REJECTION</text>
+  <text x="350" y="342" font-size="11" text-anchor="middle" fill="white">Rules (4)</text>
+  
+  <!-- Rejection Match -->
+  <path d="M 280 320 L 120 320" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="200" y="315" font-size="11" text-anchor="middle">Match</text>
+  
+  <rect x="30" y="300" width="90" height="50" fill="#FFB6C1" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="75" y="320" font-size="14" text-anchor="middle" font-weight="bold">❌ REJECT</text>
+  <text x="75" y="337" font-size="10" text-anchor="middle">+ Reason</text>
+  
+  <path d="M 75 350 L 75 580" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- No Match - Continue -->
+  <path d="M 350 350 L 350 380" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="365" y="370" font-size="11">No Match</text>
+  
+  <!-- Check Acceptance -->
+  <rect x="280" y="380" width="140" height="60" fill="#764ba2" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="350" y="400" font-size="13" text-anchor="middle" fill="white" font-weight="bold">Check</text>
+  <text x="350" y="417" font-size="13" text-anchor="middle" fill="white" font-weight="bold">ACCEPTANCE</text>
+  <text x="350" y="432" font-size="11" text-anchor="middle" fill="white">Rules (3)</text>
+  
+  <!-- Acceptance Match -->
+  <path d="M 420 410 L 550 410" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="485" y="405" font-size="11" text-anchor="middle">Match</text>
+  
+  <rect x="550" y="390" width="90" height="50" fill="#98FB98" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="595" y="410" font-size="14" text-anchor="middle" font-weight="bold">✅ ACCEPT</text>
+  <text x="595" y="427" font-size="10" text-anchor="middle">+ Reason</text>
+  
+  <path d="M 595 440 L 595 580" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- No Match - Continue -->
+  <path d="M 350 440 L 350 470" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="365" y="460" font-size="11">No Match</text>
+  
+  <!-- Check Review -->
+  <rect x="280" y="470" width="140" height="60" fill="#764ba2" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="350" y="490" font-size="13" text-anchor="middle" fill="white" font-weight="bold">Check</text>
+  <text x="350" y="507" font-size="13" text-anchor="middle" fill="white" font-weight="bold">REVIEW</text>
+  <text x="350" y="522" font-size="11" text-anchor="middle" fill="white">Rules (5)</text>
+  
+  <!-- Review Match -->
+  <path d="M 350 530 L 350 580" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="365" y="560" font-size="11">Match/Default</text>
+  
+  <rect x="280" y="560" width="140" height="50" fill="#FFD700" stroke="#333" stroke-width="2" rx="5"/>
+  <text x="350" y="580" font-size="14" text-anchor="middle" font-weight="bold">👁 REVIEW</text>
+  <text x="350" y="597" font-size="10" text-anchor="middle">+ Reason</text>
+  
+  <!-- All converge to result -->
+  <path d="M 120 580 L 350 580" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M 420 580 L 595 580" fill="none" stroke="#333" stroke-width="2"/>
+  
+  <path d="M 350 610 L 350 620" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- End -->
+  <ellipse cx="350" cy="630" rx="80" ry="20" fill="#90EE90" stroke="#333" stroke-width="2"/>
+  <text x="350" y="636" font-size="12" text-anchor="middle" font-weight="bold">Display Result</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <rect x="10" y="10" width="150" height="80" fill="#f9f9f9" stroke="#999" stroke-width="1" rx="3"/>
+  <text x="85" y="28" font-size="11" font-weight="bold" text-anchor="middle">Priority Order:</text>
+  <text x="20" y="45" font-size="10">1. Check Rejection</text>
+  <text x="20" y="60" font-size="10">2. Check Acceptance</text>
+  <text x="20" y="75" font-size="10">3. Check Review</text>
+  <text x="20" y="85" font-size="9" fill="#666">(Stop at first match)</text>
+  
+</svg>
